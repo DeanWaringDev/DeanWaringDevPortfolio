@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import logo from '../assets/brand/logo.png'
 
 const navLinks = [
   { href: '#projects', label: 'Projects' },
@@ -24,14 +25,14 @@ const Header = () => {
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/80 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-brand-blue/40 bg-brand-dark/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
-        <a href="#top" className="font-heading text-lg font-semibold tracking-tight text-white">
-          Dean Waring Dev
+        <a href="#top" className="flex items-center gap-3">
+          <img src={logo} alt="Dean Waring Dev" className="h-16 w-auto sm:h-20" />
         </a>
-        <nav className="hidden items-center gap-6 text-sm font-medium text-slate-300 sm:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-brand-light/70 sm:flex">
           {navLinks.map((link) => (
-            <a key={link.href} className="transition hover:text-white" href={link.href}>
+            <a key={link.href} className="transition hover:text-brand-light" href={link.href}>
               {link.label}
             </a>
           ))}
@@ -41,7 +42,7 @@ const Header = () => {
           aria-label="Open menu"
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen(true)}
-          className="inline-flex items-center justify-center rounded-full border border-slate-700 p-2 text-slate-200 transition hover:border-slate-500 hover:text-white sm:hidden"
+          className="inline-flex items-center justify-center rounded-full border border-brand-blue/60 p-2 text-brand-light transition hover:border-brand-blue hover:text-white sm:hidden"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -57,25 +58,24 @@ const Header = () => {
       </div>
 
       <div
-        className={`fixed inset-0 z-40 bg-slate-950/95 transition-opacity duration-300 sm:hidden ${
+        className={`fixed inset-0 z-40 bg-brand-dark/95 transition-opacity duration-300 sm:hidden ${
           isMenuOpen ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
         }`}
         onClick={closeMenu}
       />
 
       <nav
-        className={`fixed right-0 top-0 z-50 flex h-full w-72 max-w-[85%] flex-col gap-6 border-l border-slate-800 bg-slate-950 px-6 py-8 text-slate-100 shadow-[-8px_0_40px_rgba(15,23,42,0.7)] transition-transform duration-300 sm:hidden ${
+        className={`fixed right-0 top-0 z-50 flex h-full w-72 max-w-[85%] flex-col gap-6 border-l border-brand-blue/40 bg-brand-dark px-6 py-8 text-brand-light shadow-[-8px_0_40px_rgba(5,11,23,0.8)] transition-transform duration-300 sm:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         aria-label="Mobile navigation"
       >
-        <div className="flex items-center justify-between">
-          <span className="font-heading text-lg font-semibold text-white">Menu</span>
+        <div className="flex items-center justify-between"><span className="text-lg font-semibold text-white">Menu</span>
           <button
             type="button"
             aria-label="Close menu"
             onClick={closeMenu}
-            className="rounded-full border border-slate-700 p-2 text-slate-300 transition hover:border-slate-500 hover:text-white"
+            className="rounded-full border border-brand-blue/60 p-2 text-brand-light transition hover:border-brand-blue hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +94,7 @@ const Header = () => {
             <a
               key={link.href}
               href={link.href}
-              className="rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-white shadow-sm shadow-slate-900/50 transition hover:border-sky-500 hover:bg-slate-800"
+              className="rounded-xl border border-brand-blue/40 bg-brand-dark/90 px-4 py-3 text-brand-light transition hover:border-brand-orange hover:bg-brand-blue/20 hover:text-white"
               onClick={closeMenu}
             >
               {link.label}

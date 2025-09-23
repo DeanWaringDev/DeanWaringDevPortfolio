@@ -23,11 +23,12 @@ const projects: Project[] = [
 
 const ProjectsSection = () => {
   return (
-    <section id="projects" className="border-b border-slate-800 bg-slate-950 py-20 sm:py-24">
+    <section id="projects" className="border-b border-brand-blue/30 bg-brand-dark py-20 sm:py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div className="max-w-2xl">
-          <h2 className="font-heading text-3xl font-semibold text-white sm:text-4xl">Featured Projects</h2>
-          <p className="mt-4 text-base text-slate-300">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-orange">Selected work</span>
+          <h2 className="mt-3 font-heading text-3xl font-semibold text-white sm:text-4xl">Featured Projects</h2>
+          <p className="mt-4 text-base text-brand-light/80">
             Hover to reveal details, then click through to explore build notes, code, and live demos.
           </p>
         </div>
