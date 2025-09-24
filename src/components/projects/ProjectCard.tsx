@@ -19,7 +19,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
       href={href}
       target="_blank"
       rel="noreferrer"
-      className="group relative block h-72 [perspective:1200px]"
+      className="group relative block h-56 sm:h-64 [perspective:1200px]"
     >
       <div className="relative h-full w-full rounded-2xl border border-brand-blue/30 bg-brand-dark/80 transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
         <div className="absolute inset-0 overflow-hidden rounded-2xl bg-brand-dark backface-hidden">
@@ -30,9 +30,9 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
               className="h-full w-full object-cover"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-brand-blue/60 via-brand-dark to-brand-orange/40">
-              <span className="font-heading text-2xl font-semibold text-white">
-                {title}
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-tl from-brand-orange via-brand-dark to-brand-blue/60">
+              <span className="font-heading text-2xl font-semibold text-white break-words max-w-[90%] block whitespace-pre-line text-center">
+                {title.replace(' ', '\n')}
               </span>
             </div>
           )}

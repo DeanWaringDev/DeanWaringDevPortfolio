@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply m-0 min-h-screen bg-brand-dark font-sans text-brand-light antialiased;
+    @apply m-0 min-h-screen bg-brand-dark font-sans text-text-primary antialiased;
   }
 }
 

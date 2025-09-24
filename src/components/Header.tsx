@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import logo from '../assets/brand/logo.png'
+// If you want to use SVG instead, change to: import logo from '../assets/brand/logo.svg'
 
 const navLinks = [
   { href: '#projects', label: 'Projects' },
@@ -25,11 +26,18 @@ const Header = () => {
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-brand-blue/40 bg-brand-dark/90 backdrop-blur">
+  <header className="sticky top-0 z-50 border-b border-brand-blue/40 bg-brand-dark/70 backdrop-blur-lg backdrop-saturate-150 shadow-lg">
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-4 sm:px-6">
         <a href="#top" className="flex items-center gap-3">
           <img src={logo} alt="Dean Waring Dev" className="h-16 w-auto sm:h-20" />
         </a>
+        <div className="flex-1 flex justify-center">
+          <span className="font-heading text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold select-none text-center block">
+            <span className="text-brand-blue-light">Dean Waring</span>
+            <span className="mx-1"> </span>
+            <span className="text-brand-orange">Dev</span>
+          </span>
+        </div>
         <nav className="hidden items-center gap-6 text-sm font-medium text-brand-light/70 sm:flex">
           {navLinks.map((link) => (
             <a key={link.href} className="transition hover:text-brand-light" href={link.href}>
