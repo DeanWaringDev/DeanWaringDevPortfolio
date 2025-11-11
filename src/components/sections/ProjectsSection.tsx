@@ -1,11 +1,19 @@
 import ProjectCard, { type Project } from '../projects/ProjectCard'
 
+// Import project images
+import parkrunEvents from '../../assets/projects/parkrun-events.png'
+import parkrunMap from '../../assets/projects/parkrun-map.png'
+import parkrunScores from '../../assets/projects/parkrun-scores.png'
+
 const projects: Project[] = [
   {
     title: 'Project Parkrun',
-    description: 'A deep dive into Parkrun accessibility. Using machine learning and AI to analyze routes and score suitability for disabled athletes.',
-    href: '#',
+    description: 'A deep dive into Parkrun accessibility. Using machine learning and AI to analyze routes and score suitability for disabled athletes. Over 1000 users in first three weeks!',
+    href: 'https://wheelchairracer.com',
+    images: [parkrunEvents, parkrunMap, parkrunScores],
+    imageAlt: 'Parkrun Accessibility Analysis Dashboard',
     tags: ['AI', 'Machine Learning', 'Accessibility', 'Data Analysis'],
+    featured: true,
   },
   {
     title: 'Project Pro',
@@ -46,14 +54,24 @@ const ProjectsSection = () => {
         <div className="max-w-2xl">
     <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-orange">Selected work</span>
   <h2 className="mt-3 font-heading text-3xl font-semibold text-white sm:text-4xl">Featured Projects</h2>
-    <p className="mt-4 text-base text-text-secondary">
+          <p className="mt-4 text-base text-white/80">
             Hover to reveal details, then click through to explore build notes, code, and live demos.
           </p>
         </div>
-  <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={project.title} project={project} />
+        <div className="mt-12 space-y-8">
+          {/* Featured Project - Full Width to match 3-column grid */}
+          {projects.filter(p => p.featured).map((project) => (
+            <div key={project.title} className="w-full">
+              <ProjectCard project={project} />
+            </div>
           ))}
+          
+          {/* Regular Projects - Grid Layout */}
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {projects.filter(p => !p.featured).map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
